@@ -563,6 +563,7 @@ app.layout = html.Div(style={'backgroundColor': colors['background']}, children=
             dcc.Dropdown(
                 id = 'times_opu',
                 options = [{'label': 'Abilene Christian', 'value': 'Abilene Christian'}],
+                searchable=True,
                 value = 'Abilene Christian',
                 placeholder = 'Selecione o time que deseja ver', 
                 style={ 'maxHeight': '100px'}
@@ -682,6 +683,7 @@ app.layout = html.Div(style={'backgroundColor': colors['background']}, children=
             id = 'times_op',
             options = [{'label': i, 'value': i} for i in b_teams],
             value = b_teams,
+            searchable=True,
             placeholder = 'Selecione os times que deseja ver',
             multi = True
         ),
