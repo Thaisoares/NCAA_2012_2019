@@ -14,7 +14,6 @@ from plotly.subplots import make_subplots
 from dash.dependencies import Input, Output, State
 from dash.dash import no_update
 from dash.exceptions import PreventUpdate
-import base64
 
 
 rta = pd.read_csv("teamsPorAno.csv")
@@ -66,7 +65,6 @@ desc_posi = {
 }
 
 
-encoded_image = base64.b64encode(open('img_quadra.png', 'rb').read())
 
 anos = rta['ano'].drop_duplicates().to_list()
 
@@ -457,64 +455,8 @@ def bar_teams(ds, columns, q_med):
     
     return fig
 
-##########################################################################################################################
 
-def quadra_pos():
-    fig = go.Figure()
 
-    fig.add_trace(
-        go.Scatter(
-            name = '',
-            x = [2.75, 1.8, 0.8, 0.8, 1.8, 2.75,4.15],
-            y = [1.3, 1.3, 1.3, 3.5, 3.5, 3.5, 1.3],
-            mode='markers',
-            marker=dict(size=[(1951/40), (1401/40), (4202/40), (4202/40), (3030/40), (4278/40), (1536/40)],
-                color=['#E564F6', '#84BCF4', '#6DECBB', '#6DECBB', '#EF874B', '#D43A3A', '#AB70EF']),
-            customdata = hover_info[1],
-            text = [i for i in hover_info[3]],
-            hovertext = hover_info[0],
-            hovertemplate = '<b>%{hovertext}</b><br>'+'Quantidade: %{customdata}'+'<br>%{text}',
-            showlegend=True
-        ))
-#S 1951
-#MB 3030
-#OH 4202
-#DS 1536
-#L 1401
-#RS 4278
-
-    fig.add_layout_image(
-        dict(
-            source='data:image/png;base64,{}'.format(encoded_image.decode()),
-            xref="x",
-            yref="y",
-            x=0,
-            y=5,
-            sizex=5,
-            sizey=5,
-            sizing="stretch",
-            #opacity=0.5,
-            layer="below")
-    )
-
-    # Set templates
-    fig.update_layout(
-        xaxis_showgrid=False, 
-        yaxis_showgrid=False,
-        xaxis_zeroline=False, 
-        yaxis_zeroline=False,
-        yaxis_visible=False,
-        xaxis_visible=False,
-        yaxis_range=[0,5],
-        xaxis_range=[0,5],
-        height=800,
-        width=800,
-        plot_bgcolor=colors['background'],
-        paper_bgcolor=colors['background'],
-        font_color=colors['text'],
-    )
-
-    return fig
 ###########################################################################################################################
 ###########################################################################################################################333
 
@@ -783,22 +725,6 @@ app.layout = html.Div(style={'backgroundColor': colors['background']}, children=
         value=[2012, 2019]
     )], style = dict(width='50%',marginLeft= 'auto',  marginRight= 'auto')
     ),
-    ###########################################################################################################################33333
-#    html.Div([
-#    html.H3(
-#        id='quadra_div',
-#        children='Proporção de jogadoras de cada posição.',
-#        style={
-#        'textAlign': 'center',
-#        'color': colors['text'],
-#        'paddingTop': 80
-#    }),
-#    dcc.Graph(
-#        id = 'quadra',
-#        figure = quadra_pos()
-#    )
-#    ], style = dict(width='50%',marginLeft= 'auto',  marginRight= 'auto')),
-
 
 ])
 
