@@ -15,7 +15,6 @@ from dash.dependencies import Input, Output, State
 from dash.dash import no_update
 from dash.exceptions import PreventUpdate
 
-
 rta = pd.read_csv("teamsPorAno.csv")
 ncaaj = pd.read_csv("ncaajc.csv")
 
@@ -23,7 +22,7 @@ ncaa = ncaaj
 ncaa = ncaa.drop(ncaa.loc[ncaa['pos']==''].index)
 ncaa.dropna(inplace=True)
 
-file = open('output.txt','r')
+file = open('output.txt', 'r')
 
 times_t = []
 for line in file:
