@@ -9,14 +9,12 @@ import random
 import dash_table
 import plotly.express as px
 
-import plotly.offline as py
 import plotly.graph_objs as go
 from plotly.subplots import make_subplots
 from dash.dependencies import Input, Output, State
 from dash.dash import no_update
 from dash.exceptions import PreventUpdate
 import base64
-import dash_leaflet as dl
 
 
 rta = pd.read_csv("teamsPorAno.csv")
