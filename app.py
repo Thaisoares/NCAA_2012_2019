@@ -24,7 +24,7 @@ ncaa = ncaaj
 ncaa = ncaa.drop(ncaa.loc[ncaa['pos']==''].index)
 ncaa.dropna(inplace=True)
 
-file = open('./johadoras/output.txt','r')
+file = open('output.txt','r')
 
 times_t = []
 for line in file:
