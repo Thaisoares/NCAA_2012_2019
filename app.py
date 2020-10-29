@@ -16,7 +16,7 @@ from dash.dash import no_update
 from dash.exceptions import PreventUpdate
 
 rta = pd.read_csv("teamsPorAno.csv")
-ncaaj = pd.read_csv("ncaajc.csv")
+ncaaj = pd.read_csv("ncaaReduz.csv")
 
 ncaa = ncaaj
 ncaa = ncaa.drop(ncaa.loc[ncaa['pos']==''].index)
