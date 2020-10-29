@@ -1,3 +1,4 @@
+import os
 import dash
 import dash_core_components as dcc
 import dash_html_components as html
@@ -461,7 +462,10 @@ def bar_teams(ds, columns, q_med):
 
 
 
-app = dash.Dash()
+app = dash.Dash(__name__)
+server = app.server
+app.title='NCAA'
+
 colors = {
     'background': '#F6FDFD',
     'text': '#19070B'
@@ -793,7 +797,7 @@ def update_options(search_value,value):
         return [
             o for o in t_times if o["value"] in value
         ]
-
+    print(search_value)
     return [o for o in t_times if search_value.lower() in o["label"].lower()]
 
 
@@ -809,7 +813,6 @@ def display_click_data(clickData):
     else:
         h1 = clickData['points'][0]['x']
         h2 = clickData['points'][0]['y']
-        print(h1,h2)
         return distr_hab(ncaaj,h1,h2)
 
 
@@ -864,4 +867,4 @@ def update_times_options(search_value, value):
 
 
 if __name__ == '__main__':
-    app.run_server()
+    app.run_server(debug=True)
