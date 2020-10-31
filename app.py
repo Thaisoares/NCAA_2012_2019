@@ -8,6 +8,7 @@ import pandas as pd
 import re
 import random
 import dash_table
+import numpy as np
 import plotly.express as px
 
 import plotly.graph_objs as go
@@ -16,11 +17,9 @@ from dash.dependencies import Input, Output, State
 from dash.dash import no_update
 from dash.exceptions import PreventUpdate
 
-print(plotly.__version__)
-print(pd.__version__)
 
 rta = pd.read_csv("teamsPorAno.csv")
-ncaaj = pd.read_csv("ncaaReduz.csv")
+ncaaj = pd.read_csv("ncaajc.csv")
 
 ncaa = ncaaj
 ncaa = ncaa.drop(ncaa.loc[ncaa['pos']==''].index)
@@ -511,7 +510,7 @@ app.layout = html.Div(style={'backgroundColor': colors['background']}, children=
                         id='por_jogo',
                         options=[{'label':'Jogo', 'value':1},
                                  {'label':'Jogadora', 'value':0}],
-                        value=0,
+                        value=1,
                         style={'width':'auto'}),
                 ], className="six columns",style={'width':300, 'marginLeft':50,'paddingTop':6})
             ],className="row" ,style={'width':750, 'marginLeft': 45, 'columnCount':2,'display':'flex'}),
@@ -631,7 +630,7 @@ app.layout = html.Div(style={'backgroundColor': colors['background']}, children=
     html.Div([
         html.H3(
             children='Finalistas dos anos de 2012 a 2019',
-            style={'paddingLeft':'30px'}),
+            style={'paddingLeft':'30px',  'paddingTop':'30px'}),
         dash_table.DataTable(
         id='table',
         columns=[{"name": i, "id": i} for i in vencedores.columns.to_list()],
