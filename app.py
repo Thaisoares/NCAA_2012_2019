@@ -16,6 +16,9 @@ from dash.dependencies import Input, Output, State
 from dash.dash import no_update
 from dash.exceptions import PreventUpdate
 
+print(plotly.__version__)
+print(pd.__version__)
+
 rta = pd.read_csv("teamsPorAno.csv")
 ncaaj = pd.read_csv("ncaaReduz.csv")
 
@@ -165,7 +168,6 @@ def box_posi(df,habilidade, por_jogo):
             showlegend=False,
         )
     )
-    print("maxa:",maxa)
 
     fig.update_layout(
         xaxis_title='Posições',
@@ -407,7 +409,7 @@ def bar_teams(ds, columns, q_med):
                 x = df.index.to_list(),
                 y = df[column]/df['quant_jogos'],
                 name = column,
-                opacity=0.85,
+                opacity=0.95,
                 marker = dict(color = cores[column]),
                 customdata = [column]*len(df['ano']),
                 hovertemplate=
@@ -422,8 +424,9 @@ def bar_teams(ds, columns, q_med):
                 name='media '+column,
                 x = df.index.to_list(),
                 y = [med[i]]*len(df.index.to_list()),
-                mode = "lines",
-                line = dict(color='#000000',width=2.5),
+                mode = "markers",
+                line = dict(color='#000000',width=3),
+                opacity=0.7,
                 showlegend=False)
         )
         fig.add_trace(
@@ -431,8 +434,9 @@ def bar_teams(ds, columns, q_med):
                 name='media '+column,
                 x = df.index.to_list(),
                 y = [med[i]]*len(df.index.to_list()),
-                mode = "lines",
-                line = dict(color=cores[column],width=2.5,dash='dash'),
+                mode = "lines+markers",
+                line = dict(color=cores[column],width=2.6),
+                opacity=0.65,     #dash='dash'
                 showlegend=True,
                 customdata = [column]*len(df.index.to_list()),
                 hovertext = [texto]*len(df.index.to_list()),
@@ -797,7 +801,6 @@ def update_options(search_value,value):
         return [
             o for o in t_times if o["value"] in value
         ]
-    print(search_value)
     return [o for o in t_times if search_value.lower() in o["label"].lower()]
 
 
