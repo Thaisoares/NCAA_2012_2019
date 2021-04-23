@@ -475,7 +475,7 @@ colors = {
 }
 app.layout = html.Div(style={'backgroundColor': colors['background']}, children=[
     html.H1(
-        children='Análise NCAA 2012-2019',
+        children='Analysis NCAA volleyball 2012-2019',
         style={
             'textAlign': 'center',
             'color': colors['text'],
