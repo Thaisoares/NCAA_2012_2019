@@ -1,4 +1,4 @@
-team,ano,Levantamento,Tentativa de ataque,Ataques errados,Erros de manuseio da bola,Bloqueio duplo,Bloqueio simples,Erro de bloqueio,Defesa,Ponto de ataque,Pontos,Erros de recepção,Aces,Saques errados,quant_jogos
+team,ano,Assists,Attack Attempts,Attack Errors,Erros de manuseio da bola,Block Assists,Block Solos,Blocking Errors,Digs,Kills,Points,Reception Errors,Service Aces,Service Errors,quant_jogos
 abilene-christian,2013,525,1831,332,31,163,31,12,780,558,707.5,72,37,65,14
 abilene-christian,2014,1004,3415,575,55,359,33,26,1432,1074,1375.5,125,89,126,26
 abilene-christian,2015,1212,4018,669,47,367,40,45,1622,1317,1649.5,111,109,196,28

@@ -35,35 +35,37 @@ for line in file:
             times_t.append(time)
 file.close()
 
-hover_info = [['Levantador (S)','Libero (L)','Ponteiro (OH)','Ponteiro (OH)','Central (MB)','Oposto (RS)','Especialista em defesa (DS)'],
+hover_info = [['Levantador (S)','Libero (L)','Ponteiro (OH)','Ponteiro (OH)','Middle Blocker (MB)','Oposto (RS)','Especialista em Digs (DS)'],
             ['1951','1401','4202','4202','3030','4278','1536'],
             [0,1401,0,0,0,0],
-            ['É o responsável por armar a jogada.','Especialista em defesa. Só joga no fundo da quadra. E possui mais liberdade para entrar e sair de quadra',
-            'É o principal atacante.','É o principal atacante.','É  principal bloqueador, e realiza ataques rápidos.',
-            'É um atacante e realiza a <br>função do levantador, quando este não pode.','É outro especialista em defesa, porém para<br>entrar e sair de quadra são necessárias substituições.']]
+            ['É o responsável por armar a jogada.','Especialista em Digs. Só joga no fundo da quadra. E possui mais liberdade para entrar e sair de quadra',
+            'É o principal atacante.','É o principal atacante.','É  principal bloqueador, e realiza attacks rápidos.',
+            'É um atacante e realiza a <br>função do levantador, quando este não pode.','É outro especialista em Digs, porém para<br>entrar e sair de quadra são necessárias substituições.']]
 
 desc_hab = {
-'Bloqueio duplo': 'É um bloqueio composto por duas pessoas. É realizado pelas pessoas que estão na rede, normalmente nas suas extremidades.',
-'Defesa': 'É a defesa de um ataque realizado pelo time oposto.',
-'Erros de recepção': 'Recepção é o primeiro toque na bola após o saque adversário. Um erro de recepção acontece quando a jogada não tem sequência após o saque.',
-'Ponto de ataque': 'Ocorre quando o time adversário não consegue defender o ataque realizado.',
-'Bloqueio simples': 'É o bloqueio realizado por apenas uma jogadora, é efetuado na maioria das vezes pela central no meio da rede.',
-'Pontos': 'É a conquista de um ponto para o time, indepentente do movimento realizado para concluir a jogada.',
-'Aces': 'Quando o time adversário não consegue recepcionar o saque, e é ponto imediatamente sem que se consiga continuar a jogada.',
-'Ataques errados': 'São ataques que foram para fora da quadra adversária, que foram bloqueados, ou que pegaram na antena',
-'Saques errados': 'Saques para fora da quadra, que não passaram pela rede, ou que ocorreu uma falta ao pisar na linha durante o saque.',
-'Levantamento': 'Mandar a bola para alguma jogadora do time de forma que seja possível realiar o ataque',
-'Tentativa de ataque': 'Quando uma jogadora toca a bola acima de sua cabeça com a intenção de fazer ponto.',
-'Erro de bloqueio': 'Ocorre quando a jogadora bloqueando encosta na rede, invade a quadra adversária, ou a jogadora está posicionada no fundo no rodízio atual.'
+"Block Assists": "A block assist is given when two or three players participate in a successful block at the same time.",
+"Digs": "A dig is the first contact made after an attacker from the other team sends the ball over to the defensive team.",
+"Reception Errors": "Reception is the first contact made after the opponent’s service. A reception error occurs when the play has no sequence after a successful serve.",
+"Kills": "A Kill is awarded to a player any time an attack is unreturnable by the opposition or any time the attack leads directly to a blocking error by the opposition.",
+"Block Solos": "A block is a defensive playing action at the net. A block solo is performed by one player usually the Middle Blocker.",
+"Points": "It is the achievement of a point for the team, regardless of the movement made to complete the move.",
+"Service Aces": "A Service Ace is a serve which results directly in a point.",
+"Attack Errors": "These are attacks that went outside the opponent’s court, that were blocked, or that hit the antenna",
+"Service Errors": "The serve hits the net. The serve is out of bounds. The server foot-faults on the serve. The player serves out of rotation.",
+"Assists": "A player is awarded an Assist whenever that player passes or sets the ball to a teammate who attacks the ball for a Kill.",
+"Attack Attempts": "An offensive play that has the intention of making a point",
+"Blocking Errors": "A Blocking Error occurs whenever an official calls a blocker for a violation that results immediately in a point or side out."
 }
 
+
+
 desc_posi = {
-'Levantadora': 'A jogadora que organiza e chama as jogadas dentro de quadra. É responsável pelo levantamento, por isso não participa tanto das recepções e defesa.',
-'Central': 'É o principal bloqueio do time, já que bloqueia em todas as posições da rede. Não costuma jogar no fundo da quadra.',
-'Ponteira': 'A principal atacante do time, e também é importante da defesa do time.',
-'Especialista Defesa': 'A diferença entre ela e a libero, é que a especialista em defesa pode jogar na rede e precisa de uma substituição para que entre em quadra.',
-'Libero': 'Peça fundamental na defesa. Só pode jogar no fundo da quadra e em geral entra no lugar da central. (Na NCAA a libero pode sacar)',
-'Oposta': 'É uma atacante, fica em posição oposta à levantadora e realiza o levantamento quando esta não consegue'
+'Setter': "The setter is the main contributor to the offense of the volleyball team. Without her, there wouldn’t be hard spikes. She is responsible for the set, so she doesn't participate as much in the reception and defense.",
+'Middle Blocker': 'The middle blocker is usually the tallest player on the volleyball team. Their main role is blocking the opposing team’s hits. They will also have chances for quick spikes.',
+'Outside Hitter': 'The outside hitter is often the focal point of the offense and completes most of the attack hits. They are also the player who carries the serve receive responsibility along with the libero.',
+'Defensive Specialist': 'The defensive specialist has an ability to substitute out any player on the court. And they traditionally focus on ball control and passing and work well with the libero.',
+'Libero': 'They can only play on the back row of the court, and because of this, are the ideal person to receive a hit from the opposite team. (In the NCAA the libero can serve)',
+'Opposite Hitter': 'The opposite hitter is an important hitter. They must be able to adjust to sets coming from any location, as well as hit from the front and back rows. Opposite hitters don’t have the passing responsibilities.'
 }
 
 
@@ -76,47 +78,47 @@ t_times = [{'label': i, 'value': i} for i in times_t]
 b_teams = ['Stanford','Nebraska','Wisconsin', 'Florida','BYU','Texas','Penn St.']
 
 data_v = {
-    'Ano': [2012,2013,2014,2015,2016,2017,2018,2019],
-    'Ouro': ['Texas','Penn St','Penn St','Nebraska','Stanford','Nebraska','Stanford','Stanford'],
-    'Prata': ['Oregon','Wisconsin','BYU','Texas','Texas','Florida','Nebraska','Wisconsin'],
-    'Placar da Final': ['3-0','3-1','3-0','3-0','3-1','3-1','3-2','3-0']
+    'Year': [2012,2013,2014,2015,2016,2017,2018,2019],
+    'Gold': ['Texas','Penn St','Penn St','Nebraska','Stanford','Nebraska','Stanford','Stanford'],
+    'Silver': ['Oregon','Wisconsin','BYU','Texas','Texas','Florida','Nebraska','Wisconsin'],
+    'Final Score': ['3-0','3-1','3-0','3-0','3-1','3-1','3-2','3-0']
 }
-vencedores = pd.DataFrame(data_v,columns=['Ano','Ouro','Placar da Final','Prata'])
+vencedores = pd.DataFrame(data_v,columns=['Year','Gold','Final Score','Silver'])
 
-saque = ['Saques errados','Aces']
-ataque = ['Tentativa de ataque','Ponto de ataque','Ataques errados']
-defesa = ['Defesa','Erros de recepção']
-bloqueio = ['Bloqueio duplo','Bloqueio simples','Erro de bloqueio']
-combo = ['Tentativa de ataque','Ponto de ataque','Pontos','Defesa','Levantamento']
-extras = [combo,saque,ataque,defesa,bloqueio]
-extrass = ['combo','saque','ataque','defesa','bloqueio']
-colunas = ['Bloqueio duplo', 'Defesa', 'Erros de recepção', 'Ponto de ataque', 'Bloqueio simples', 'Pontos',
-           'Aces', 'Ataques errados', 'Saques errados', 'Levantamento', 'Tentativa de ataque', 'Erro de bloqueio']
+service = ['Service Errors','Service Aces']
+attack = ['Attack Attempts','Kills','Attack Errors']
+defese = ['Digs','Reception Errors']
+block = ['Block Assists','Block Solos','Blocking Errors']
+combo = ['Attack Attempts','Kills','Points','Digs','Assists']
+extras = [combo,service,attack,defese,block]
+extrass = ['combo','service','attack','defese','block']
+colunas = ['Block Assists', 'Digs', 'Reception Errors', 'Kills', 'Block Solos', 'Points',
+           'Service Aces', 'Attack Errors', 'Service Errors', 'Assists', 'Attack Attempts', 'Blocking Errors']
 
 cores = {
-    'Pontos' :            '#68C2FA' ,#'#2f937d', #083F05
-    'Aces' :              '#4F7EFA' ,#'#367934',#369428
-    'Bloqueio duplo' :    '#1A0090' ,#'#2a7779',#17B396  
-    'Bloqueio simples' :  '#9B01FA' ,#'#5e8b3c',#6C9D2D
-    'Ponto de ataque' :   '#A1783C' ,#"rgb(0, 102, 0)",
-    'Levantamento' :      '#D3F500',#'#2b60a1',#03a56a  #702ba1
-    'Defesa' :            '#F5C303' ,#'#9C57BC',
-    'Tentativa de ataque' :'#FA9203',#"rgb(0, 0, 102)",
-    'Erro de bloqueio' :  '#F53C00' ,#'#97193B',
-    'Erros de recepção' : '#F57070' ,#'#bb5b35',#B54C4C
-    'Saques errados' :    '#DD96F5' ,#'#bb3b35'#EC1317
-    'Ataques errados' :   '#962000' ,#"rgb(102, 0, 0)",
+    'Points' :            '#68C2FA' ,#'#2f937d', #083F05
+    'Service Aces' :              '#4F7EFA' ,#'#367934',#369428
+    'Block Assists' :    '#1A0090' ,#'#2a7779',#17B396  
+    'Block Solos' :  '#9B01FA' ,#'#5e8b3c',#6C9D2D
+    'Kills' :   '#A1783C' ,#"rgb(0, 102, 0)",
+    'Assists' :      '#D3F500',#'#2b60a1',#03a56a  #702ba1
+    'Digs' :            '#F5C303' ,#'#9C57BC',
+    'Attack Attempts' :'#FA9203',#"rgb(0, 0, 102)",
+    'Blocking Errors' :  '#F53C00' ,#'#97193B',
+    'Reception Errors' : '#F57070' ,#'#bb5b35',#B54C4C
+    'Service Errors' :    '#DD96F5' ,#'#bb3b35'#EC1317
+    'Attack Errors' :   '#962000' ,#"rgb(102, 0, 0)",
 }
 
 
 
 def box_posi(df,habilidade, por_jogo):
-    posicoes = ['Especialista Defesa', 'Libero', 'Levantadora', 'Oposta', 'Ponteira', 'Central']
+    posicoes = ['Defensive Specialist', 'Libero', 'Setter', 'Opposite Hitter', 'Outside Hitter', 'Middle Blocker']
 
     fig = go.Figure()
     if(por_jogo):
         df=df.groupby(['dates','pos','team','opponent']).sum().reset_index(drop=False)
-        pj=' por jogo'
+        pj=' per game'
     else:
         pj=''
 
@@ -152,7 +154,7 @@ def box_posi(df,habilidade, por_jogo):
                 customdata=[soma],
                 texttemplate='Total=%{customdata:.2s}',
                 textposition='top center',
-                hovertext='none',
+                #hovertext='none',
                 showlegend=False,
             )
         )
@@ -169,12 +171,12 @@ def box_posi(df,habilidade, por_jogo):
     )
 
     fig.update_layout(
-        xaxis_title='Posições',
-        yaxis_title='Quantidade de '+habilidade.lower()+'s '+pj,
+        xaxis_title='Positions',
+        yaxis_title='Amount of '+habilidade.lower()+pj,
         plot_bgcolor=colors['background'],
         paper_bgcolor=colors['background'],
         font_color=colors['text'],
-        title=habilidade+' por posições'+pj,
+        title=habilidade+' of each position'+pj,
         yaxis_range=[0,maxa+5+(maxa*0.1)],
     )
 
@@ -206,9 +208,9 @@ def multi_plot(df, columns, show_medT):
                 text = [df.loc[(df.index.to_list())[0],'team']]*len(df['ano']),
                 hovertemplate=
                         "<b>%{customdata}</b><br><br>" +
-                        "Time: %{text}<br>"+
-                        "Ano: %{x}<br>" +
-                        "Média de ocorrências por jogo: %{y:.2f}<br>" +
+                        "Team: %{text}<br>"+
+                        "Year: %{x}<br>" +
+                        "Average per game: %{y:.2f}<br>" +
                         "<extra></extra>",
                 visible = True
             )
@@ -217,7 +219,7 @@ def multi_plot(df, columns, show_medT):
             med = (df[column]/df['quant_jogos']).mean()
             fig.add_trace(
                 go.Scatter(
-                    name='media '+column,
+                    name='Average '+column,
                     x = df['ano'],
                     y = [med]*len(df['ano']),
                     mode = "lines",
@@ -226,7 +228,7 @@ def multi_plot(df, columns, show_medT):
                     customdata = [column]*len(df['ano']),
                     hovertemplate=
                         "<b>%{customdata}</b><br>" +
-                        "Média de todos os anos: %{y:.2f}<br>" +
+                        "Average of all years: %{y:.2f}<br>" +
                         "<extra></extra>",
                 )
             )
@@ -234,8 +236,8 @@ def multi_plot(df, columns, show_medT):
 
 
     fig.update_layout(
-            xaxis_title='Anos',
-            yaxis_title='Quantidade média por jogo',
+            xaxis_title='Years',
+            yaxis_title='Average per game',
             plot_bgcolor=colors['background'],
             paper_bgcolor=colors['background'],
             font_color=colors['text'],
@@ -246,8 +248,8 @@ def multi_plot(df, columns, show_medT):
 ##############################################################################################################################
 
 def corr_habs(df):
-    col = ['Levantamento', 'Pontos', 'Ponto de ataque', 'Tentativa de ataque', 'Ataques errados','Defesa',
-           'Erros de recepção', 'Bloqueio duplo',  'Bloqueio simples', 'Erro de bloqueio', 'Aces', 'Saques errados']
+    col = ['Assists', 'Points', 'Kills', 'Attack Attempts', 'Attack Errors','Digs',
+           'Reception Errors', 'Block Assists',  'Block Solos', 'Blocking Errors', 'Service Aces', 'Service Errors']
     col.append('Sets jogados')
 
     r =  df.groupby(['team','dates','opponent'])['r'].max()
@@ -256,12 +258,12 @@ def corr_habs(df):
     nc = nc.reset_index(drop=False)
     nc['r']=r.values
     col = col[:-1]
-    nc.loc[nc['r']==0,'vic']='Perdeu'
-    nc.loc[nc['r']==1,'vic']='Ganhou'
+    nc.loc[nc['r']==0,'vic']='Lose'
+    nc.loc[nc['r']==1,'vic']='Win'
     nc = nc[nc['Sets jogados']>21]
 
-    col = ['Levantamento', 'Pontos', 'Ponto de ataque', 'Tentativa de ataque', 'Ataques errados','Defesa',
-           'Erros de recepção', 'Bloqueio duplo',  'Bloqueio simples', 'Erro de bloqueio', 'Aces', 'Saques errados']
+    col = ['Assists', 'Points', 'Kills', 'Attack Attempts', 'Attack Errors','Digs',
+           'Reception Errors', 'Block Assists',  'Block Solos', 'Blocking Errors', 'Service Aces', 'Service Errors']
 
     matrix = nc[col].corr()
     x=0
@@ -279,7 +281,7 @@ def corr_habs(df):
     fig.add_trace(go.Heatmap(
                 z= [cor_vic],
                 x= col,
-                y= ['Vitória'],
+                y= ['Victory'],
                 xgap=1, ygap=1,
                 zmin=-1, zmax=1,
                 coloraxis = "coloraxis",
@@ -329,8 +331,8 @@ def corr_habs(df):
 ################################################################################################################################
 
 def distr_hab(df,h1,h2):
-    col = ['Levantamento', 'Pontos', 'Ponto de ataque', 'Tentativa de ataque', 'Ataques errados','Defesa',
-           'Erros de recepção', 'Bloqueio duplo',  'Bloqueio simples', 'Erro de bloqueio', 'Aces', 'Saques errados']
+    col = ['Assists', 'Points', 'Kills', 'Attack Attempts', 'Attack Errors','Digs',
+           'Reception Errors', 'Block Assists',  'Block Solos', 'Blocking Errors', 'Service Aces', 'Service Errors']
     col.append('Sets jogados')
 
     r =  df.groupby(['team','dates','opponent'])['r'].max()
@@ -338,8 +340,8 @@ def distr_hab(df,h1,h2):
     nc = nc.reset_index(drop=False)
     nc['r']=r.values
     col = col[:-1]
-    nc.loc[nc['r']==0,'vic']='Perdeu'
-    nc.loc[nc['r']==1,'vic']='Ganhou'
+    nc.loc[nc['r']==0,'vic']='Win'
+    nc.loc[nc['r']==1,'vic']='Lose'
     n = nc[nc['Sets jogados']>21]
 
     fig = make_subplots(rows=2, cols=2, shared_yaxes=True, shared_xaxes=True,column_widths=[0.7, 0.3],row_heights=[0.3, 0.7])
@@ -359,11 +361,11 @@ def distr_hab(df,h1,h2):
                              showlegend=False
                              ),
                  2,1)
-    fig.add_trace(go.Histogram(name='Perdeu o Jogo', x=n.loc[n['r']==0 ,h1], marker_color='#E0534A', opacity=0.8, showlegend=True),1,1)
-    fig.add_trace(go.Histogram(name='Venceu o Jogo', x=n.loc[n['r']==1 ,h1], marker_color='#5160E0', opacity=0.8, showlegend=True),1,1)
+    fig.add_trace(go.Histogram(name='Lost the game', x=n.loc[n['r']==0 ,h1], marker_color='#E0534A', opacity=0.8, showlegend=True),1,1)
+    fig.add_trace(go.Histogram(name='Won the Game', x=n.loc[n['r']==1 ,h1], marker_color='#5160E0', opacity=0.8, showlegend=True),1,1)
 
-    fig.add_trace(go.Histogram(name='Perdeu o Jogo', y=n.loc[n['r']==0 ,h2], marker_color='#E0534A', opacity=0.8, showlegend=False),2,2)
-    fig.add_trace(go.Histogram(name='Venceu o Jogo', y=n.loc[n['r']==1 ,h2], marker_color='#5160E0', opacity=0.8, showlegend=False),2,2)
+    fig.add_trace(go.Histogram(name='Lost the game', y=n.loc[n['r']==0 ,h2], marker_color='#E0534A', opacity=0.8, showlegend=False),2,2)
+    fig.add_trace(go.Histogram(name='Won the Game', y=n.loc[n['r']==1 ,h2], marker_color='#5160E0', opacity=0.8, showlegend=False),2,2)
     fig.update_layout(barmode='overlay')
 
 
@@ -392,10 +394,10 @@ def bar_teams(ds, columns, q_med):
 
     if(q_med):
         med = rta[columns].sum()/rta['quant_jogos'].sum()
-        texto = 'Média de todos os times'
+        texto = 'Average of all teams'
     else:
         med = df[columns].sum()/df['quant_jogos'].sum()
-        texto = 'Média dos times presentes'
+        texto = 'Average teams on the chart'
 
     med.sort_values(ascending=False,inplace=True)
     columns = med.index.to_list()
@@ -413,14 +415,14 @@ def bar_teams(ds, columns, q_med):
                 customdata = [column]*len(df['ano']),
                 hovertemplate=
                         "<b>%{customdata}</b><br><br>" +
-                        "Time: %{x}<br>"+
-                        "Média de ocorrências por jogo: %{y:.2f}<br>" +
+                        "Team: %{x}<br>"+
+                        "Average per game: %{y:.2f}<br>" +
                         "<extra></extra>",
             )
         )
         fig.add_trace(
             go.Scatter(
-                name='media '+column,
+                name='Average '+column,
                 x = df.index.to_list(),
                 y = [med[i]]*len(df.index.to_list()),
                 mode = "markers",
@@ -430,7 +432,7 @@ def bar_teams(ds, columns, q_med):
         )
         fig.add_trace(
             go.Scatter(
-                name='media '+column,
+                name='Average '+column,
                 x = df.index.to_list(),
                 y = [med[i]]*len(df.index.to_list()),
                 mode = "lines+markers",
@@ -448,8 +450,8 @@ def bar_teams(ds, columns, q_med):
 
 
     fig.update_layout(
-        xaxis_title='Times',
-        yaxis_title='Quantidade média por jogo',
+        xaxis_title='Teams',
+        yaxis_title='Average per game',
         plot_bgcolor=colors['background'],
         paper_bgcolor=colors['background'],
         font_color=colors['text'],
@@ -484,7 +486,7 @@ app.layout = html.Div(style={'backgroundColor': colors['background']}, children=
     ),
     html.H3(
         id='posi_div',
-        children='Comparando as posições e suas funções.', 
+        children='Positions and their functions.', 
         style={
             'textAlign': 'center',
             'color': colors['text'],
@@ -495,21 +497,21 @@ app.layout = html.Div(style={'backgroundColor': colors['background']}, children=
         html.Div([
             html.Div([
                 html.Div([
-                    html.Label('Selecione aquantidade que deseja ver:'),
+                    html.Label('Select a category:'),
                     dcc.Dropdown(
                         id = 'hab_p',
                         options = [{'label': i, 'value': i} for i in colunas],
                         value = colunas[1],
-                        placeholder = 'Selecione o que deseja ver',
+                        placeholder = 'category',
                         style={'width':400}
                     ),
                 ], className="six columns"),
                 html.Div([
-                    html.Label('Ver por jogadora ou por jogo?'),
+                    html.Label('View graph by player or by game?'),
                     dcc.RadioItems(
                         id='por_jogo',
-                        options=[{'label':'Jogo', 'value':1},
-                                 {'label':'Jogadora', 'value':0}],
+                        options=[{'label':'Game', 'value':1},
+                                 {'label':'Player', 'value':0}],
                         value=1,
                         style={'width':'auto'}),
                 ], className="six columns",style={'width':300, 'marginLeft':50,'paddingTop':6})
@@ -517,7 +519,7 @@ app.layout = html.Div(style={'backgroundColor': colors['background']}, children=
             
             dcc.Graph(
                 id='hab_posi',
-                #figure=box_posi(ncaa,ataque[0],0)
+                #figure=box_posi(ncaa,attack[0],0)
             )
         ], className="six columns", style = {'width':750,'display': 'block'}),
         html.Div([
@@ -525,26 +527,26 @@ app.layout = html.Div(style={'backgroundColor': colors['background']}, children=
                 html.Div([
                     html.H4(
                         id='titulo_hab',
-                        children='Habilidade',
+                        children='Skills',
                         style={'paddingLeft': 30,'color': '#224791'}
                     ),
                     html.Div(
                         id='expli_hab',
-                        children='Explicação',
+                        children='Definion',
                         style={'paddingLeft':26, "color":colors['text'],'textAlign': 'justify', 'width':'80%'}
-                    )],style={'height':'43%','paddingTop':5}
+                    )],style={'height':'40%','paddingTop':5}
                 ),
                 html.Div([
                     html.H4(
                         id='titulo_pos',
-                        children='Posição',
+                        children='Position',
                         style={'paddingLeft': 30,'color': '#224791'}
                     ),
                     html.Div(
                         id='expli_pos',
-                        children='Clique no boxplot de alguma das posições à esquerda para saber mais sobre ela.',
+                        children='Click on the boxplot of any of the positions to find out more about it.',
                         style={'paddingLeft':26, "color":colors['text'],'textAlign': 'justify', 'width':'80%'}
-                    )],style={'height':'57%'}
+                    )],style={'height':'60%'}
                 )
             ],style={'border': '1.8px solid #224791', 'borderRadius': '12px', 'width':340, 'height':360,
                 'marginLeft': 'auto',  'marginRight': 'auto','marginUp': 'auto',  'marginDown': 'auto'}
@@ -556,7 +558,7 @@ app.layout = html.Div(style={'backgroundColor': colors['background']}, children=
 ##################################################################################################################################
     html.H3(
         id='evolu_div',
-        children='A evolução do time nos anos.', 
+        children='The evolution of the team over the years', 
         style={
             'textAlign': 'center',
             'color': colors['text'],
@@ -565,38 +567,38 @@ app.layout = html.Div(style={'backgroundColor': colors['background']}, children=
     }),
     html.Div([
         html.Div([
-            html.Label('Selecione o time que deseja ver (digite para aparecer opções que se aproximem):'),
+            html.Label('Select the team you want to see (type to appear options):'),
             dcc.Dropdown(
                 id = 'times_opu',
                 options = [{'label': 'Abilene Christian', 'value': 'Abilene Christian'}],
                 searchable=True,
                 value = 'Abilene Christian',
-                placeholder = 'Selecione o time que deseja ver', 
+                placeholder = 'Select the team you want to see', 
                 style={ 'maxHeight': '100px'}
             ),
             html.Div(style={'paddingTop':10}),
-            html.Label('Mostrar a média do time?'),
+            html.Label('Show team average?'),
             dcc.RadioItems(
                 id='show_med',
-                options=[{'label': 'Sim', 'value': 1},
-                        {'label': 'Não', 'value': 0}],
+                options=[{'label': 'Yes', 'value': 1},
+                        {'label': 'No', 'value': 0}],
                 value=0,
                 #labelStyle={'display': 'inline-block'}
         )], className="six columns",style={'width':'450px','marginLeft':90,'display': 'block'}),
         html.Div([
-            html.Label('Selecione as habilidades que deseja ver:'),
+            html.Label('Select the skills you want to see:'),
             dcc.Dropdown(
                 id='hab_visible',
                 options=[{'label': extrass[i], 'value': i} for i in range(len(extras))],
                 value=0,
-                placeholder="Selecione um conjunto para exibir"
+                placeholder="Select a set to display"
             ),
             html.Div(style={'paddingTop':10}),
             dcc.Dropdown(
                 id='hab_unica',
                 options=[{'label': i, 'value': i} for i in colunas],
                 multi = True,
-                placeholder="Selecione algumas habilidades para serem exibidas"
+                placeholder="Select some skills to display"
             )
             ], className="six columns",style={'width':'450px','display': 'inline-block','paddingLeft':15})
         ], className="row", style={'width': '90%', 'display': 'flex', 'marginLeft':60, 'columnCount':2}),
@@ -609,7 +611,7 @@ app.layout = html.Div(style={'backgroundColor': colors['background']}, children=
     ),
 
 ################################################################################################################################
-    html.H3(children='Correlação entre habilidades',
+    html.H3(children='Correlation between skills',
                 style={'textAlign':'center','paddingTop':50}),
     html.Div([
         html.Div([
@@ -621,7 +623,7 @@ app.layout = html.Div(style={'backgroundColor': colors['background']}, children=
         html.Div([
             dcc.Graph(
                 id='Relacao_hab',
-                figure=distr_hab(ncaaj,'Pontos','Levantamento')
+                figure=distr_hab(ncaaj,'Points','Assists')
             )
         ],className="six columns" , style = dict(width='85%',marginLeft= 30,  marginRight= 'auto'))
     ],className="row", style={'width': '90%','paddingLeft':20, 'paddingDown':60, 'display': 'flex','alignItems': 'center', 'columnCount':2}
@@ -629,7 +631,7 @@ app.layout = html.Div(style={'backgroundColor': colors['background']}, children=
 #################################################################################################################################
     html.Div([
         html.H3(
-            children='Finalistas dos anos de 2012 a 2019',
+            children='Finalists for the years 2012 to 2019',
             style={'paddingLeft':'30px',  'paddingTop':'30px'}),
         dash_table.DataTable(
         id='table',
@@ -651,11 +653,11 @@ app.layout = html.Div(style={'backgroundColor': colors['background']}, children=
         },
         style_cell_conditional=[
             {
-                'if': {'column_id': 'Placar da Final'},
+                'if': {'column_id': 'Final Score'},
                 'textAlign': 'center'
             },
             {
-                'if': {'column_id': 'Ano'},
+                'if': {'column_id': 'Year'},
                 'width': '60px',
                 'paddingLeft': '9px'
             }
@@ -684,37 +686,37 @@ app.layout = html.Div(style={'backgroundColor': colors['background']}, children=
     }),
     html.Div([
     html.Div([
-        html.Label('Selecione os times que deseja ver:'),
+        html.Label('Select the teams you want to see:'),
         dcc.Dropdown(
             id = 'times_op',
             options = [{'label': i, 'value': i} for i in b_teams],
             value = b_teams,
             searchable=True,
-            placeholder = 'Selecione os times que deseja ver',
+            placeholder = 'Select the teams you want to see',
             multi = True
         ),
         html.Div(style={'paddingTop':10}),
-        html.Label('Mostrar a média de todos os times ou apenas dos presentes no gráfico?'),
+        html.Label('Show the average of all teams or just of those present on the graph?'),
         dcc.RadioItems(
             id='qual_med',
-            options=[{'label': 'Todos os times', 'value': 1},
-                    {'label': 'Apenas os do gráfico', 'value': 0}],
+            options=[{'label': 'All teams', 'value': 1},
+                    {'label': 'Just those present on the graph', 'value': 0}],
             value=0,
         )], className="six columns",style={'width':'450px','marginLeft':90,'display': 'block'}),
     html.Div([
-        html.Label('Selecione as habilidades que deseja ver:'),
+        html.Label('Select the skills you want to see:'),
         dcc.Dropdown(
             id='hab_visibles',
             options=[{'label': extrass[i], 'value': i} for i in range(1,len(extras))],
             value=2,
-            placeholder="Selecione um conjunto para exibir"
+            placeholder="Select a set to display"
         ),
         html.Div(style={'paddingTop':10}),
         dcc.Dropdown(
             id='hab_unicas',
             options=[{'label': i, 'value': i} for i in colunas],
             multi = True,
-            placeholder="Selecione algumas habilidades para serem exibidas"
+            placeholder="Select some skills to display"
         )], className="six columns",style={'width':'450px','display': 'inline-block','paddingLeft':15}
         )], className="row", style={'width': '90%', 'display': 'flex', 'marginLeft':60, 'columnCount':2}),
     html.Div([
@@ -784,9 +786,9 @@ def update_graph(habs_visible, habs_unica, showt, time_es):
     if(time_es != None):
         time = re.sub("\s","-",time_es).lower()
         time = re.sub("\(|\)|\.|\?|&",'',time)
-        return multi_plot(rta[rta['team'] == time],habs,showt), 'A evolução do time '+time_es+' nos anos'
+        return multi_plot(rta[rta['team'] == time],habs,showt), 'The evolution of '+time_es+' over the years'
     else:
-        return multi_plot(rta[rta['team'] == ''],habs,showt), 'A evolução do time nos anos'   
+        return multi_plot(rta[rta['team'] == ''],habs,showt), 'The evolution of the team over the years'   
 
 @app.callback(
     Output("times_opu", "options"),
@@ -842,13 +844,13 @@ def update_bgraph(habs_visible, habs_unica, times_escolhidos, q_med, min_max):
     habs = list(set(habs))
     anos_escolhidos = [i for i in anos if ((int(i) >= min_max[0])&(int(i) <= min_max[1]))]
     times=[]
-    msg = 'Comparação dos times '
+    msg = 'Comparison of '
     for i in times_escolhidos:
         msg = msg + i +', '
         time = re.sub("\s","-",i).lower()
         time = re.sub("\(|\)|\.|\?|&",'',time)
         times.append(time)
-    msg = msg[0:-2]+' do ano '+str(min_max[0])+' até '+str(min_max[1])
+    msg = msg[0:-2]+' from '+str(min_max[0])+' to '+str(min_max[1])
     return (bar_teams(rta[(rta['team'].isin(times))&(rta['ano'].isin(anos_escolhidos))],habs,q_med), msg)
 
 @app.callback(
