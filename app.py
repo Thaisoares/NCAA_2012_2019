@@ -623,7 +623,7 @@ app.layout = html.Div(style={'backgroundColor': colors['background']}, children=
         html.Div([
             dcc.Graph(
                 id='Relacao_hab',
-                figure=distr_hab(ncaaj,'Points','Assists')
+                figure=distr_hab(ncaaj,'Assists','Kills')
             )
         ],className="six columns" , style = dict(width='85%',marginLeft= 30,  marginRight= 'auto'))
     ],className="row", style={'width': '90%','paddingLeft':20, 'paddingDown':60, 'display': 'flex','alignItems': 'center', 'columnCount':2}
